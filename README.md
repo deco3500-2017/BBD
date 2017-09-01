@@ -53,6 +53,25 @@ Trying to integrate Codeverter into classes also means that we need help support
 Code.org shares a similar goal to Codeverter in giving students the opportunity to learn computer science. 
 The below Code.org screen shots show a few features that both Codeverter and Code.ord share. 
 
+Codeverter like Code.org tries to support not only the teachers but also the students. 
+
+Code.org like Codeverter provides support for multiple year levels. However Codeverter is currently aimed for primary school children only. This will allow the primary school year levels to be broken up even further unlike Code.org that has just K-5. This will allow the modules to be even more customised and specific for each year level.
+
+Code.org provides lesson plans for teachers as seen above. However this is where Codeverter greatly differs from Code.org. Rather than a written documents describing lesson plans that the teacher then needs to somehow organise themselves Codeverter makes this process more easier and interactive.
+
+Within Codeverter a teacher profile has control over a virtual classroom where all the student accounts are enrolled to. The teacher can drag and drop activities into this classroom that students have to complete at home or during class. This allows the teacher to control the entire classroom from their own screens. Allowing them to make sure children stay focused and on track especially during class as there is a known issue that technology can also have the tendency to distract students from work rather than facilitate it.  
+
+This differs from Code.org where teachers just follow the lesson plan, then deliver lengthy instructions to students and then have to walk around and check every student’s screen to make sure students are working on the right modules. 
+
+This is one of the many Code.org activities. We can see that students can work in individually, in pairs and groups to complete such activities. However we can see from the above screen shot that:
+The teacher has no communication or control over what the students are doing
+Everyone works on the same activities with no interaction happening between students working on other computer screens i.e. limited collaboration. 
+
+This is where Codeverter comes in. As stated in the project outline Codeverter’s biggest goal is to make this a social learning experience. 
+Just to reinstate Codeverter activities will allow:
+The teacher to participate along with the students and have some form of control.
+The class to work together from their own individual screens.
+For example the main screen that the teacher projects to the class can display the bigger problem e.g. a jigsaw puzzle. Then each student’s screen is assigned a smaller chunk of the problem i.e. they each have a jigsaw piece however in order to place that on the main screen they need to complete the coding challenge. So for every challenge that a students complete they win a puzzle piece to add to the classroom jigsaw puzzle. Therefore the whole class works together to finish the bigger problem. 
 
 
 <br></br>
