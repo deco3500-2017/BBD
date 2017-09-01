@@ -122,20 +122,20 @@ The Google Drive will be used for all items that do not need version control and
 All files will be given descriptive names in camel case. Naming with a date/time stamp is not necessary as files will be under version control and changes to the files will include the date and time.
 
 <h2>5. Plan</h2>
-1 - <u>Establishing the Requirements (Weeks 5 - 7)</u>
-- Research, identify and understand the target users and their different sub-categories.
-- Understand their needs through data gathering and analysis.
-- Research/test all assumptions and decisions made.
- -Analyse similar product offerings
-2 - <u>Design alternatives (Weeks 8 - 9)</u>
-- Create possible design solution that meet the requirements 
-- Produce conceptual and concrete model for the product
-- Get users to evaluate the model
-3 - <u>Prototyping (Weeks 10 - 11)</u>
-- Build the prototype (Starting off with a paper prototype, Then with a more concrete design we’ll move on to building an electronic prototype.)
-- User testing and evaluation 
-4 - <u>Evaluating (Weeks 12 - 13)</u>
-- Analyse the chosen design based on usability and user experience criterias. 
+1. Establishing the Requirements (Weeks 5 - 7) <br>
+Research, identify and understand the target users and their different sub-categories. <br>
+- Understand their needs through data gathering and analysis. <br>
+- Research/test all assumptions and decisions made. <br>
+ -Analyse similar product offerings  <br>
+2. Design alternatives (Weeks 8 - 9) <br>
+- Create possible design solution that meet the requirements  <br>
+- Produce conceptual and concrete model for the product <br>
+- Get users to evaluate the model <br>
+3 Prototyping (Weeks 10 - 11) <br>
+- Build the prototype (Starting off with a paper prototype, Then with a more concrete design we’ll move on to building an electronic prototype.) <br>
+- User testing and evaluation  <br>
+4 Evaluating (Weeks 12 - 13) <br>
+- Analyse the chosen design based on usability and user experience criterias.  <br>
 
 <h2>6. Tags</h2>
 #socialLearning #webApplication #digitalClassrooms #social #primaryEducation #youngProgrammers #education
