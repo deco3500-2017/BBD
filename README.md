@@ -2,9 +2,9 @@
 
 <b>BBD</b>
 
-Divyanshi Vashist - 43540697
-Barney Whiteman - 43948378
-Bethany Willis - 43594850
+Divyanshi Vashist - 43540697 <br>
+Barney Whiteman - 43948378 <br>
+Bethany Willis - 43594850 <br>
 
 <br></br>
 
@@ -123,7 +123,7 @@ All files will be given descriptive names in camel case. Naming with a date/time
 
 <h2>5. Plan</h2>
 1. Establishing the Requirements (Weeks 5 - 7) <br>
-Research, identify and understand the target users and their different sub-categories. <br>
+- Research, identify and understand the target users and their different sub-categories. <br>
 - Understand their needs through data gathering and analysis. <br>
 - Research/test all assumptions and decisions made. <br>
  -Analyse similar product offerings  <br>
