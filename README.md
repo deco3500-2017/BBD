@@ -53,16 +53,20 @@ Trying to integrate Codeverter into classes also means that we need help support
 Code.org shares a similar goal to Codeverter in giving students the opportunity to learn computer science. 
 The below Code.org screen shots show a few features that both Codeverter and Code.ord share. 
 
+![](1.JPG)
 Codeverter like Code.org tries to support not only the teachers but also the students. 
 
+![](2.JPG)
 Code.org like Codeverter provides support for multiple year levels. However Codeverter is currently aimed for primary school children only. This will allow the primary school year levels to be broken up even further unlike Code.org that has just K-5. This will allow the modules to be even more customised and specific for each year level.
 
+![](3.JPG)
 Code.org provides lesson plans for teachers as seen above. However this is where Codeverter greatly differs from Code.org. Rather than a written documents describing lesson plans that the teacher then needs to somehow organise themselves Codeverter makes this process more easier and interactive.
 
 Within Codeverter a teacher profile has control over a virtual classroom where all the student accounts are enrolled to. The teacher can drag and drop activities into this classroom that students have to complete at home or during class. This allows the teacher to control the entire classroom from their own screens. Allowing them to make sure children stay focused and on track especially during class as there is a known issue that technology can also have the tendency to distract students from work rather than facilitate it.  
 
 This differs from Code.org where teachers just follow the lesson plan, then deliver lengthy instructions to students and then have to walk around and check every student’s screen to make sure students are working on the right modules. 
 
+![](4.JPG)
 This is one of the many Code.org activities. We can see that students can work in individually, in pairs and groups to complete such activities. However we can see from the above screen shot that:
 The teacher has no communication or control over what the students are doing
 Everyone works on the same activities with no interaction happening between students working on other computer screens i.e. limited collaboration. 
