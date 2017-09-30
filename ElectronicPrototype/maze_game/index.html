@@ -3,10 +3,12 @@
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 </head>
 
+<div id="playerTitle"></div>
+<div id="gameTitle"></div>
 <canvas id="maze" width="450px" height="450px">
 </canvas>
 
-<button id="newGame" onclick="clearGame()" type="button">New Game</button>
+<!-- <button id="newGame" onclick="clearGame()" type="button">New Game</button> -->
 
 <style>
 #maze {
@@ -156,15 +158,32 @@ $(function () {
     
     //e.preventDefault();
     });
+    
+    /*
+    socket.on('refresh', function(){
+      location.reload();
+    });
+    */    
+    
+    socket.on('playerTitle', function(playerID){    
+        document.getElementById('playerTitle').innerHTML = "Player ID: " + playerID;
+
+    });
+    socket.on('win', function(playerID){    
+        document.getElementById("maze").style.visibility = "hidden";
+        document.getElementById('gameTitle').innerHTML = "Winner is player: " + playerID;
+
+    });
 });
 
+/*
 function clearGame() {
     var socket = io();
 
     socket.emit('clearGame');
-    
-}
 
+}
+*/
 createMaze();
 
 

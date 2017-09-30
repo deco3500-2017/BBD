@@ -31,9 +31,15 @@ function canMove(x, y){
 
 
 var players = {};
+var names = {};
 var playerCount = 0;
 var startX = [0, 0, 9, 9];
 var startY = [0, 9, 0, 9];
+
+function checkWin(x, y){
+    return ((x == 4) && (y == 4));
+}
+
 // Listen on the connection event for incoming sockets
 // and write to console
 io.on('connection', function(socket){
@@ -43,14 +49,17 @@ io.on('connection', function(socket){
             y: startY[playerCount]
         };
         
+        names[socket.id] = playerCount;
+        
         playerCount++;
         io.sockets.emit('state', players);
+        io.sockets.emit('playerTitle', names[socket.id]);
     });
     
     // On receiving message  
     socket.on('movement', function(msg){
         var player = players[socket.id] || {};
-       
+        
         if ((msg == 1) && canMove(player.x, player.y-1))
             player.y--;
         else if ((msg == 2) && canMove(player.x, player.y+1))
@@ -61,13 +70,25 @@ io.on('connection', function(socket){
             player.x++;
         
         io.sockets.emit('state', players);
+        
+        if(checkWin(player.x, player.y) == true) {
+            io.sockets.emit('win', names[socket.id]);
+
+            //io.sockets.emit('state', players);
+        }
     });
     
+    /*
     socket.on('clearGame', function(){
-       playerCount = 0;
-       players = {}; 
-       io.sockets.emit('new player');
+       delete players[socket.id];
+       io.sockets.emit('state', players);
+       playerCount--;
     });
+    */
+    socket.on('disconnect', function() {
+        delete players[socket.id];
+        io.sockets.emit('state', players);
+    })
 });
 
 http.listen(port, function(){
