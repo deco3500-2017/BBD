@@ -6,6 +6,8 @@
 <canvas id="maze" width="450px" height="450px">
 </canvas>
 
+<button id="newGame" onclick="clearGame()" type="button">New Game</button>
+
 <style>
 #maze {
     border: 1px solid black;
@@ -23,65 +25,65 @@ body {
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 
+<script src="/static/game.js"></script>
+ 
 <script>
 // Player Coordinates
-var player = {
-    x: 0,
-    y: 0
-};
+//var player = {
+  //  x: 0,
+   // y: 0
+//};
 
 var canvas = $('#maze');
 
 // Maze canvas key: 1 for wall, 0 for path and -1 for the goal
 var maze = [
     [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [ 1, 0, 1, 0, 0, 0, 0, 0, 1, 0],
-    [ 0, 0, 0, 0, 1, 1, 1, 0, 1, 0],
-    [ 0, 1, 1, 0, 0, 0, 1, 0, 1, 0],
-    [ 0, 0, 1, 1, 1, 1, 1, 0, 1, 0],
-    [ 1, 0, 1, 0, 0, 0, 1, 0, 1, 0],
-    [ 1, 0, 1, 0, 1, 0, 1, 0, 0, 0],
-    [ 1, 0, 1, 0, 1, 0, 0, 1, 1, 0],
-    [-1, 0, 1, 0, 1, 1, 0, 0, 0, 0]
+    [ 1, 1, 1, 1, 0, 1, 1, 1, 1, 0],
+    [ 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+    [ 0, 0, 0, 1, 0, 1, 1, 0, 1, 0],
+    [ 1, 1, 1, 1,-1, 1, 1, 0, 1, 0],
+    [ 0, 0, 0, 1, 0, 0, 0, 0, 1, 0],
+    [ 1, 0, 0, 0, 0, 1, 1, 0, 1, 0],
+    [ 1, 0, 1, 0, 0, 1, 1, 0, 0, 0],
+    [ 1, 1, 1, 1, 0, 1, 0, 1, 1, 0],
+    [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
 ];
 
 //Draw the maze
 function createMaze(){
-    var width = canvas.width();
-    var blockSize = width/maze.length;
-    var ctx = canvas[0].getContext('2d');
+    var width = canvas.width(); // The width of the matrix
     
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.clearRect(0, 0, width, width);
-    ctx.fillStyle="green";
+    var blockSize = width/maze.length;
+    
+    // Create a plane game board canvas
+    var board = canvas[0].getContext('2d');
+    board.setTransform(1, 0, 0, 1, 0, 0);
+    // Creating a square canvas
+    board.clearRect(0, 0, width, width);
+    
+    board.fillStyle = "green";
     
     //Loop through the maze array drawing the walls and the goal
     for(var y = 0; y < maze.length; y++){
         for(var x = 0; x < maze[y].length; x++){
             //Draw a wall
             if(maze[y][x] === 1){
-                ctx.fillRect(x*blockSize, y*blockSize, blockSize, blockSize);
+                board.fillRect(x*blockSize, y*blockSize, blockSize, blockSize);
             }
             //Draw the goal
             else if(maze[y][x] === -1){
-                ctx.beginPath();
-                ctx.lineWidth = 5;
-                ctx.strokeStyle = "red";
-                ctx.moveTo(x*blockSize, y*blockSize);
-                ctx.lineTo((x+1)*blockSize, (y+1)*blockSize);
-                ctx.moveTo(x*blockSize, (y+1)*blockSize);
-                ctx.lineTo((x+1)*blockSize, y*blockSize);
-                ctx.stroke();
+                board.beginPath();
+                board.lineWidth = 5;
+                board.strokeStyle = "red";
+                board.moveTo(x*blockSize, y*blockSize);
+                board.lineTo((x+1)*blockSize, (y+1)*blockSize);
+                board.moveTo(x*blockSize, (y+1)*blockSize);
+                board.lineTo((x+1)*blockSize, y*blockSize);
+                board.stroke();
             }
         }
     }
-    //Draw the player
-    ctx.beginPath();
-    var half = blockSize/2;
-    ctx.fillStyle = "blue";
-    ctx.arc(player.x*blockSize+half, player.y*blockSize+half, half, 0, 2*Math.PI);
-    ctx.fill();
 }
 
 //Check to see if the new space is inside the maze and not a wall
@@ -90,29 +92,79 @@ function canMove(x, y){
 }
 
 $(function () {
+   
     var socket = io();
     
-    $(document).keyup(function(e){
-        if((e.which == 38) && canMove(player.x, player.y-1))//Up arrow
-            player.y--;
-        else if((e.which == 40) && canMove(player.x, player.y+1)) // down arrow
-            player.y++;
-        else if((e.which == 37) && canMove(player.x-1, player.y))
-            player.x--;
-        else if((e.which == 39) && canMove(player.x+1, player.y))
-            //player.x++;
-            socket.emit('chat message', 1);
-        createMaze();
-        e.preventDefault();
-    });
+        var width = canvas.width(); // The width of the matrix
     
-    socket.on('chat message', function(msg){
-      if(msg == 1) 
-        player.x++;
-        createMaze();
-        e.preventDefault();
+    var blockSize = width/maze.length;
+    var half = blockSize/2;
+    // Create a plane game board canvas
+    var board = canvas[0].getContext('2d');
+    board.setTransform(1, 0, 0, 1, 0, 0);
+    // Creating a square canvas
+    board.clearRect(0, 0, width, width);
+    
+    board.fillStyle = "green";
+    
+    //Loop through the maze array drawing the walls and the goal
+    for(var y = 0; y < maze.length; y++){
+        for(var x = 0; x < maze[y].length; x++){
+            //Draw a wall
+            if(maze[y][x] === 1){
+                board.fillRect(x*blockSize, y*blockSize, blockSize, blockSize);
+            }
+            //Draw the goal
+            else if(maze[y][x] === -1){
+                board.beginPath();
+                board.lineWidth = 5;
+                board.strokeStyle = "red";
+                board.moveTo(x*blockSize, y*blockSize);
+                board.lineTo((x+1)*blockSize, (y+1)*blockSize);
+                board.moveTo(x*blockSize, (y+1)*blockSize);
+                board.lineTo((x+1)*blockSize, y*blockSize);
+                board.stroke();
+            }
+        }
+    }
+    //$(document).keyup(function(e){
+        //if((e.which == 38) && canMove(player.x, player.y-1))//Up arrow
+          //  player.y--;
+        //else if((e.which == 40) && canMove(player.x, player.y+1)) // down arrow
+          //  player.y++;
+        //else if((e.which == 37) && canMove(player.x-1, player.y))
+          //  player.x--;
+        //else if((e.which == 39) && canMove(player.x+1, player.y))
+            //player.x++;
+          //  socket.emit('movement', 1);
+       // createMaze();
+        //e.preventDefault();
+    //});
+    var colours = ["blue", "orange", "purple", "pink"];
+    
+    socket.on('state', function(players){
+      createMaze();
+      var colourCounter = 0;
+      for (var id in players) {
+          var player = players[id];
+          board.beginPath();
+          board.fillStyle = colours[colourCounter];
+          board.arc(player.x*blockSize+half, player.y*blockSize+half, half, 0, 2*Math.PI);
+          board.fill();
+          colourCounter++;
+      }
+    
+    //e.preventDefault();
     });
 });
+
+function clearGame() {
+    var socket = io();
+
+    socket.emit('clearGame');
+    
+}
+
 createMaze();
 
 
