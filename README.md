@@ -5,10 +5,7 @@
 Divyanshi Vashist - 43540697 <br>
 Barney Whiteman - 43948378 <br>
 Bethany Willis - 43594850 <br>
-
 <br></br>
-
-<h1>Project Proposal</h1>
 
 <h2>1. Introduction</h2> In some shape or form, technological advancements shape and control just about every aspect of our lives today. As a result children today are growing up in a very different world than previous generations. Currently in Australia more than 90% of the workforce will need digital skills to perform their roles and in the next 2-5 years 60% of students will be studying or training for positions that will become largely automated [1]. Thus in this digital age it’s important for students to start learning how to program from a younger age.
 
@@ -112,7 +109,7 @@ If necessary, additional meetings can be planned and scheduled through the teams
 
 <h3>4.2 Communication and File Sharing</h3>
 
-The team has a slack channel (in the DECO3500 team) named BBD. Here team members can discuss the project, come to decisions and schedule meetings. Slack was chosen as the main form of communication as it is intuitive to use and allows for quick photo sharing (useful for screenshots etc). 
+The team has a slack channel (in the DECO3500 team) named BBD, however most communiation will be over a Facebook group chat as we found we used Facebook more frequently.
 
 While Slack does allow for file sharing, we have instead opted for a combination of Google Drive and GitHub.
 The Google Drive will be used for all items that do not need version control and will have multiple concurrent contributors (e.g. reports), while the GitHub repository will be utilised for all of the actual project files. The version control will make it easy to ensure each member is contributing and to check progress and adhere to milestones.
@@ -122,19 +119,23 @@ The Google Drive will be used for all items that do not need version control and
 All files will be given descriptive names in camel case. Naming with a date/time stamp is not necessary as files will be under version control and changes to the files will include the date and time.
 
 <h2>5. Plan</h2>
-1. Establishing the Requirements (Weeks 5 - 7) <br>
+1. Establishing the Requirements (Weeks 5 - 6) <br>
 - Research, identify and understand the target users and their different sub-categories. <br>
 - Understand their needs through data gathering and analysis. <br>
 - Research/test all assumptions and decisions made. <br>
  -Analyse similar product offerings  <br>
-2. Design alternatives (Weeks 8 - 9) <br>
+2. Design alternatives (Weeks 7 - 8) <br>
 - Create possible design solution that meet the requirements  <br>
 - Produce conceptual and concrete model for the product <br>
 - Get users to evaluate the model <br>
-3 Prototyping (Weeks 10 - 11) <br>
-- Build the prototype (Starting off with a paper prototype, Then with a more concrete design we’ll move on to building an electronic prototype.) <br>
-- User testing and evaluation  <br>
-4 Evaluating (Weeks 12 - 13) <br>
+3 Low fidelity Prototyping (Weeks 9 - 10) <br>
+- Paper prototype several designs and conduct initial user testing and evaluation <br>
+- Use FluidUI to make a basic prototype for user testing <br>
+- Start the electronic prototype from html
+4 Electronic prototype (11 - 12) <br>
+- Flesh out the electronic prototype and start user testing it
+- Develop the electronic prototype based on results of user testing
+5 Evaluating (Weeks 12 - 13) <br>
 - Analyse the chosen design based on usability and user experience criterias.  <br>
 
 <h2>6. Tags</h2>
