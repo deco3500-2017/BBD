@@ -144,7 +144,6 @@ body {
 }
 
 .feed-item .text-holder{
-    margin-top: 8px;
     width: 75%;
     float: left;
 }
@@ -152,8 +151,8 @@ body {
 .feed-title{
     font-weight: bold;
     position: relative;
-    padding-top: 5%;
-    padding-left: 15px;
+    padding-top: 25px;
+    padding-left: 20px;
        
 }
 
@@ -184,3 +183,12 @@ body {
     display:inline-block;
 }
 
+#teacherTitle {
+    position: absolute;
+    top: 10%;
+    left: 45%;
+    color: white;
+    padding-top: 20px;
+    font-size: 40px;   
+    font-weight: bold;
+}

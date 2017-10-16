@@ -72,8 +72,9 @@
 <div id = "gameplay">
     <h1 id="lessonPlanTitle" class="header"></h1>
 
+    <div id="teacherTitle"></div>
+
     <div id="infoCard">
-        <div id="teacherTitle"></div>
         <div id="playerTitle"></div>
         <div id="gameTitle"></div>
         <div id="counterTitle"></div>
@@ -199,7 +200,7 @@ $("#teacherAccount").click(function(){
     document.getElementById("login").style.display = "none"; 
     document.getElementById("lessonPlan").style.display = "block";
     document.getElementById("enterLesson").style.display = "none";
-    
+ 
     document.body.style.backgroundImage =  'url(./images/lessonPlan.png)';
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
@@ -239,6 +240,7 @@ $("#enterLesson").click(function(){
     document.getElementById('lessonPlan').style.display = "none";  
 
     if(lessonPlan == 1) {
+        document.getElementById("maze").style.left = "35%";
         document.getElementById("maze").style.display = "inline-block";
         document.getElementById("challenge").style.display = "none";
 
@@ -355,7 +357,7 @@ $(function () {
             
             if(playerID == "teacher") {
                 //document.getElementById("challenge").style.display = "none";
-                document.getElementById('teacherTitle').innerHTML = "TEACHER SCREEN";
+                document.getElementById('teacherTitle').innerHTML = "Class 4K Maze";
             } else {
                 document.getElementById('playerTitle').innerHTML = "Player ID: " + playerID;
             }
