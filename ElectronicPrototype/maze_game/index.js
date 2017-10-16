@@ -5,11 +5,14 @@ var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
 
 app.use('/static', express.static(__dirname + '/static'));
+app.use('/images', express.static(__dirname + '/images'));
+
 app.use('/css', express.static(__dirname + '/css'));
 
 
 // Below is so we don't have to write the entire html
 // in this file
+/*
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/login.html');
 });
@@ -17,8 +20,8 @@ app.get('/', function(req, res){
 app.get('/lessonPlan', function(req, res){
   res.sendFile(__dirname + '/lessonPlan.html');
 });
-
-app.get('/mazegame', function(req, res){
+*/
+app.get('/', function(req, res){
   res.sendFile(__dirname + '/mazeGame.html');
 });
 
