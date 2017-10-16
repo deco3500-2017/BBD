@@ -5,11 +5,21 @@ var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
 
 app.use('/static', express.static(__dirname + '/static'));
+app.use('/css', express.static(__dirname + '/css'));
+
 
 // Below is so we don't have to write the entire html
 // in this file
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/login.html');
+});
+
+app.get('/lessonPlan', function(req, res){
+  res.sendFile(__dirname + '/lessonPlan.html');
+});
+
+app.get('/mazegame', function(req, res){
+  res.sendFile(__dirname + '/mazeGame.html');
 });
 
 var maze = [
@@ -32,7 +42,8 @@ function canMove(x, y){
 
 var players = {};
 var names = {};
-var playerCount = -1;
+var playerCount = 0;
+
 var startX = [0, 0, 9, 9];
 var startY = [0, 9, 0, 9];
 
@@ -45,24 +56,74 @@ function checkWin(x, y){
 // Listen on the connection event for incoming sockets
 // and write to console
 io.on('connection', function(socket){
-    socket.on('new player', function() {
-        if(playerCount == -1) {
+    socket.on('new player', function(playerType) {
+        if(playerType == "teacher") {
             io.sockets.emit('state', players);
-            io.sockets.emit('playerTitle', 'x');
-            playerCount++;
+            io.sockets.emit('playerTitle', "teacher");
         } else {
+           
+            var freeName = true;
+            for(var aName in names) {
+                console.log("aName: " +aName);
+                if(names[aName] == 0) {
+                    freeName = false;
+                    break;
+                }
+            }
+            
+            if(freeName == true) {
+                names[socket.id] = 0;
+            } else {
+                freeName = true;  
+                for(var aName in names) {
+                    if(names[aName] == 1) {
+                        freeName = false;
+                        break;
+                    }
+                }
+                
+                if(freeName == true) {
+                    names[socket.id] = 1;
+                }  else {
+                    freeName = true;  
+                    for(var aName in names) {
+                        if(names[aName] == 2) {
+                            freeName = false;
+                            break;
+                        } 
+                    } 
+                    if(freeName == true) {
+                        names[socket.id] = 2;
+                    } else {
+                        freeName = true;  
+                        for(var aName in names) {
+                            if(names[aName] == 3) {
+                                freeName = false;
+                                break;
+                            } 
+                        } 
+                        if(freeName == true) {
+                            names[socket.id] = 3;
+                        }
+                    }
+                }    
+            }
+            
             players[socket.id] = {
-                x: startX[playerCount],
-                y: startY[playerCount]
+                name: names[socket.id], 
+                x: startX[names[socket.id]],
+                y: startY[names[socket.id]]
             };
             
-            names[socket.id] = playerCount;
+            
+            console.log(names);
+
             counters[socket.id] = 0;
             
-            playerCount++;
-            io.sockets.emit('state', players);
             io.sockets.emit('playerTitle', names[socket.id]);
+            io.sockets.emit('state', players);
             io.sockets.emit('counterUpdate', counters[socket.id]);
+            playerCount++;
         }
 
     });
@@ -74,23 +135,30 @@ io.on('connection', function(socket){
     });
     // On receiving message  
     socket.on('movement', function(msg){
+        
         var player = players[socket.id] || {};
         
         if(counters[socket.id] > 0) {
-            if ((msg == 1) && canMove(player.x, player.y-1))
+            if ((msg == 1) && canMove(player.x, player.y-1)){
                 player.y--;
-            else if ((msg == 2) && canMove(player.x, player.y+1))
+                counters[socket.id]--;
+
+            } else if ((msg == 2) && canMove(player.x, player.y+1)) {
                 player.y++;
-            else if ((msg == 3) && canMove(player.x-1, player.y))
+                counters[socket.id]--;
+
+            } else if ((msg == 3) && canMove(player.x-1, player.y)) {
                 player.x--;
-            else if ((msg == 4) && canMove(player.x+1, player.y))
+                counters[socket.id]--;
+
+            } else if ((msg == 4) && canMove(player.x+1, player.y)) {
                 player.x++;
+                counters[socket.id]--;
+            }
                     
             if(checkWin(player.x, player.y) == true) {
                 io.sockets.emit('win', names[socket.id]);
             }
-            
-            counters[socket.id]--;
         } 
         
         io.sockets.emit('state', players);
@@ -106,7 +174,11 @@ io.on('connection', function(socket){
     });
     */
     socket.on('disconnect', function() {
+        console.log("player disconneted\n\n");
+        playerCount--;
         delete players[socket.id];
+        delete names[socket.id];
+        delete counters[socket.id];
         io.sockets.emit('state', players);
     })
 });

@@ -9,30 +9,36 @@
 <div id="counterTitle"></div>
 
 
-<canvas id="maze" width="450px" height="450px">
-</canvas>
-
-<br>
-<br>
-<br>
-<div id="challenge">
-    <b>Challenge #1 ***</b> <br>
-    Complete the code that will print numbers from 1-5; <br>
-    
-    int i; <br>
-    for(<input id="Q1Answer" type="text" name="lname">) {<br>
-       &emsp; print i;<br>
-    }
-    <br><br>
-    <button id="submit" onclick="checkAnswer()" type="button">Check</button>
-    <br><br>
-    <button id="right" type="button">Right</button>
-    <button id="left" type="button">Left</button>
-    <button id="up" type="button">Up</button>
-    <button id="down" type="button">Down</button>
-
+<div id="login">
+    <input type="button" id="teacherAccount" class="button" value="I am a teacher"/>
+    <input type="button" id="studentAccount" class="button" value="I am a student"/>
 </div>
 
+<div id = "gameplay">
+    <canvas id="maze" width="450px" height="450px">
+    </canvas>
+
+    <br>
+    <br>
+    <br>
+    <div id="challenge">
+        <b>Challenge #1 ***</b> <br>
+        Complete the code that will print numbers from 1-5; <br>
+        
+        int i; <br>
+        for(<input id="Q1Answer" type="text" name="lname">) {<br>
+           &emsp; print i;<br>
+        }
+        <br><br>
+        <button id="submit" onclick="checkAnswer()" type="button">Check</button>
+        <br><br>
+        <button id="right" type="button">Right</button>
+        <button id="left" type="button">Left</button>
+        <button id="up" type="button">Up</button>
+        <button id="down" type="button">Down</button>
+
+    </div>
+<div>
 <!-- <button id="newGame" onclick="clearGame()" type="button">New Game</button> -->
 
 <style>
@@ -63,14 +69,10 @@ body {
 <script src="/static/game.js"></script>
  
 <script>
-// Player Coordinates
-//var player = {
-  //  x: 0,
-   // y: 0
-//};
+var playerNumber = -1;
 
 var canvas = $('#maze');
-var playerNumber = -1;
+
 
 // Maze canvas key: 1 for wall, 0 for path and -1 for the goal
 var maze = [
@@ -122,6 +124,49 @@ function createMaze(){
     }
 }
 
+
+
+
+createMaze();
+
+
+
+var logged = 0;
+if(logged == 0) {
+    document.getElementById("maze").style.display = "none";
+    document.getElementById("challenge").style.display = "none";
+
+}
+         
+$("#teacherAccount").click(function(){
+    logged = 1;
+    document.getElementById("maze").style.display = "block";
+    document.getElementById("challenge").style.display = "none";
+    document.getElementById("login").style.display = "none"; 
+
+    //document.getElementById('teacherTitle').innerHTML = "TEACHER SCREEN";
+    socket.emit('new player', "teacher");
+});
+
+$("#studentAccount").click(function(){
+    logged = 1;
+    document.getElementById("maze").style.display = "block";
+    document.getElementById("challenge").style.display = "block";
+
+    //document.getElementById('playerTitle').innerHTML = "Player ID: " + playerNumber;
+    document.getElementById("login").style.display = "none";
+    socket.emit('new player', "student");
+});
+
+
+
+
+
+
+
+
+
+
 //Check to see if the new space is inside the maze and not a wall
 function canMove(x, y){
     return (y>=0) && (y<maze.length) && (x >= 0) && (x < maze[y].length) && (maze[y][x] != 1);
@@ -144,6 +189,9 @@ function checkAnswer() {
 $(function () {
    
     var socket = io();
+    
+    
+    //socket.emit('new player', "teacher");
 
     
     var width = canvas.width(); // The width of the matrix
@@ -186,8 +234,9 @@ $(function () {
       var colourCounter = 0;
       for (var id in players) {
           var player = players[id];
+          console.log(player.x+"," + player.y);
           board.beginPath();
-          board.fillStyle = colours[colourCounter];
+          board.fillStyle = colours[player.name];
           board.arc(player.x*blockSize+half, player.y*blockSize+half, half, 0, 2*Math.PI);
           board.fill();
           colourCounter++;
@@ -206,17 +255,21 @@ $(function () {
     });
     */    
     
-    socket.on('playerTitle', function(playerID){    
+    
+    socket.on('playerTitle', function(playerID){  
+        console.log(playerID);
         if(playerNumber == -1) {
             playerNumber = playerID;
-            if(playerID == 'x') {
-                document.getElementById("challenge").style.display = "none";
+            
+            if(playerID == "teacher") {
+                //document.getElementById("challenge").style.display = "none";
                 document.getElementById('teacherTitle').innerHTML = "TEACHER SCREEN";
             } else {
                 document.getElementById('playerTitle').innerHTML = "Player ID: " + playerID;
             }
         }
     });
+    
         
     socket.on('win', function(playerID){    
         document.getElementById("maze").style.visibility = "hidden";
@@ -233,7 +286,7 @@ function clearGame() {
 
 }
 */
-createMaze();
+//createMaze();
 
 
 </script>

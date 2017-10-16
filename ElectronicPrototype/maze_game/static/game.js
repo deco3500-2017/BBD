@@ -28,5 +28,3 @@ $(document).on("click", "#right", function(){
     socket.emit('movement', movement);
     movement = 0;
 });
-    
-socket.emit('new player');
