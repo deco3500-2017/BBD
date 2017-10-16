@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CodeVerter Login</title>
+	</head>
+	<body>
+		
+		<form>
+			<label><b>Username</b></label>
+			<input type="text" placeholder="Enter Username" id="username" required>
+			
+			<label><b><Password</b></label>
+			<input type="password" placeholder="Enter Password" name="password" required>
+			
+			<button type="submit" onclick="myFuntion()">Login</button>
+		</form>
+		
+		<p id="results">
+		
+		<script>
+			function myFunction() {
+			text = document.getElementById("username").innderHTML;
+			document.getElementById("results").innerHTML = /\b[st]/i.test(text);
+			}
+		</script>
+		
+		<script>
+function myFunction() {
+    text = document.getElementById("p01").innerHTML; 
+    document.getElementById("demo").innerHTML = /\b[st]/i.test(text);
+}
+</script>
+		
+	</body>
+</html>
