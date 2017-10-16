@@ -79,13 +79,7 @@ For example the main screen that the teacher projects to the class can display t
 <h2>3. Team</h2>
 
 <h3>3.1 Workload and Responsibilities</h3>
-As the team contains only 3 people we decided that having an assigned team leader would not be as effective. Thus the responsibilities of a team leader will be shared amongst each other.
-
-Once again being a small team means that the roles and responsibilities do not have to be as clearly defined and separated as the team is small enough to work together. The success of the team will rely on all members being proactive and contributing to all aspects of the project. However each team member will be given the responsibility to look over certain area of the project. 
-
-Divyanshi Vashist, doing a Bachelour of Engineering and a Bachelour Science will be responsible for...
-Bethany Willis, doing a Bachelour of Information Technology will be responsible for
-Barney Whiteman, doing a Bachelour of Engineering will be responsible for
+As the team contains only 3 people we decided that having an assigned team leader would not be as effective. Thus the responsibilities of a team leader will be shared amongst each other. The success of the team will rely on all members being proactive and contributing to all aspects of the project. However each team member will be given the responsibility to look over certain area of the project.  The tasks have been divded up and assigned, and can be viewed here https://docs.google.com/document/d/1Ix1n-yNkbbL5i0OrrpfA3fJs8UUIx8AYnu5faTTNcuQ/edit?usp=sharing.
 
 <h3>3.2 Group Decisions</h3>
 Group decisions will be discussed as a team and determine by a “majority rules” vote.
@@ -137,6 +131,7 @@ All files will be given descriptive names in camel case. Naming with a date/time
 - Develop the electronic prototype based on results of user testing
 5 Evaluating (Weeks 12 - 13) <br>
 - Analyse the chosen design based on usability and user experience criterias.  <br>
+- Make the promotional material. <br>
 
 <h2>6. Tags</h2>
 #socialLearning #webApplication #digitalClassrooms #social #primaryEducation #youngProgrammers #education
