@@ -86,7 +86,6 @@ function highScores() {
 	for(i = 0; i < players; i++) {		
 	  	var li = document.createElement("li");
 	  	li.appendChild(document.createTextNode("P" + (i + 1) + ": " + Math.floor(Math.random() * 100 + 100 * (players - i))));
-	  	li.setAttribute("style", "background-color: #ddf;");
 	  	ul.appendChild(li);
 	}
 }
