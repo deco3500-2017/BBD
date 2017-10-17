@@ -17,7 +17,7 @@ function student_setup() {
 }
 
 function student_game() {
-
+	populateText();
 }
 
 function toggle() {
@@ -119,4 +119,10 @@ function play() {
 
 		f++;
 	}
+}
+
+function populateText() {
+	var code = document.getElementById("code");
+
+	code.innerHTML = "/*Spaceship game\nadd your code here to make your ship stronger\nIf you don't know what a piece of code does\nthen look at the blocks below\n or put your hand up and ask for your teachers help!\nHappy Coding!\n*/\n\nfor(e in enemies) {\n\tif(inRange(e)) {\n\t\tshoot(e);\n\t}\n}\n\nif(health < 20) {\n\theal();\n\trun();\n}";
 }

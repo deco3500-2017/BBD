@@ -102,11 +102,16 @@ html {
 	float: bottom;
 }
 
+#code {
+	margin: 10px;
+	width: 95%; 
+	height: 80%
+}
+
 .block {
 	width: 24%;
 	height: 80%;
 	text-align: center;
-	padding-top: 5px;
 	border: 1px solid black;
 	float: left;
 	background-color: #ccc;
