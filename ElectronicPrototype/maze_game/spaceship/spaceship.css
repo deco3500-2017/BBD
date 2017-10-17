@@ -1,6 +1,9 @@
 html {
 	font-family: "Arial";
 	background-color: #eee;
+	background: url("../images/rocketWallpaper.png") no-repeat center center fixed;
+	background-size: cover;
+	color: #fff;
 }
 
 
@@ -14,12 +17,14 @@ html {
 }
 
 #left {
-	width:50%;
+	padding-right: 5%;
+	width:40%;
 	float: left;
 }
 
 #right {
-	width: 50%;
+	padding-left: 5%;
+	width: 40%;
 	float: left;
 }
 
@@ -68,8 +73,6 @@ html {
 	background-color: #ddd;
 }
 
-
-
 #options {
 	height:50%;
 	float: top;
@@ -78,7 +81,7 @@ html {
 #topics {
 	height:50%;
 	float: bottom;
-	background-color: #ddd;
+	//background-color: #ddd;
 }
 
 #begin {
@@ -119,27 +122,41 @@ html {
 	background-color: #ada;
 }
 
+.selectTitle {
+	float: left;
+}
+
+.option {
+	clear:left;
+}
+
+.option input[type = number], .option select {
+	margin-top: 23px;
+	margin-bottom: 23px;
+	margin-left: 10;
+}
+
 select, #length {
+	color: #555;
 	border-radius: 5px;
 	background-color: #ddf;
 }
 
 ul {
     list-style-type: none;
+	color: #555;
 }
 
-#players li {
-	background-color: #ddf;
+li {
+	opacity: 0.7;
 	margin:1px;
 }
 
-#add li {
-	background-color: #ddf;
+#players li {
+	background-color: #ddd;
 }
 
-#rmv li {
-	background-color: #ddf;
-}
+
 
 h3 {
 	margin:0;
@@ -186,15 +203,6 @@ button {
 /*img {
 	height: 50%;
 }*/
-
-
-
-
-
-
-
-
-
 
 
 

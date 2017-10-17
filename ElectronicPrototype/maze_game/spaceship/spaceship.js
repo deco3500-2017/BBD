@@ -53,7 +53,7 @@ function drawList() {
 	  	var li = document.createElement("li");
 	  	li.appendChild(document.createTextNode(" + " + add[i]));
 	  	li.setAttribute("onclick", "addToRmv(" + i + ")");
-	  	li.setAttribute("style", "background-color: #fdd;");
+	  	li.setAttribute("style", "background-color: #fbb;");
 	  	ul.appendChild(li);
 	}
 
@@ -65,7 +65,7 @@ function drawList() {
 	  	var li = document.createElement("li");
 	  	li.appendChild(document.createTextNode(" - " + rmv[i]));
 	  	li.setAttribute("onclick", "rmvToAdd(" + i + ")");
-	  	li.setAttribute("style", "background-color: #dfd;");
+	  	li.setAttribute("style", "background-color: #bfb;");
 	  	ul.appendChild(li);
 	}
 }
@@ -86,7 +86,6 @@ function highScores() {
 	for(i = 0; i < players; i++) {		
 	  	var li = document.createElement("li");
 	  	li.appendChild(document.createTextNode("P" + (i + 1) + ": " + Math.floor(Math.random() * 100 + 100 * (players - i))));
-	  	li.setAttribute("style", "background-color: #ddf;");
 	  	ul.appendChild(li);
 	}
 }
