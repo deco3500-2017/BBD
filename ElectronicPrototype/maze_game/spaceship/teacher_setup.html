@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-	
 	<head>
 		<link rel="stylesheet" type="text/css" href="Spaceship.css">
 		<script type="text/javascript" src="spaceship.js"></script>
@@ -12,38 +11,38 @@
 		<div id="left">
 			<div id="options">
 				<div class="option">
-				<h4 class="selectTitle">Year Level</h4>
-				<select id="year">
-				  	<option value="4">4</option>
-				  	<option value="5">5</option>
-				  	<option value="6">6</option>
-				  <option value="7">7</option>
-				</select>
+					<h4 class="selectTitle">Year Level</h4>
+					<select id="year">
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+					  <option value="7">7</option>
+					</select>
 				</div>
 
 				<div class="option">
-				<h4 class="selectTitle">Number of Rounds</h4>
-				<select id="rounds">
-				  	<option value="5">5</option>
-				  	<option value="10">10</option>
-				  	<option value="15">15</option>
-				  	<option value="20">20</option>
-				</select>
+					<h4 class="selectTitle">Number of Rounds</h4>
+					<select id="rounds">
+						<option value="5">5</option>
+						<option value="10">10</option>
+						<option value="15">15</option>
+						<option value="20">20</option>
+					</select>
 				</div>
 
 				<div class="option">
-				<h4 class="selectTitle">Round Length</h4>
-				<input id="length" type="number" name="quantity" min="20" max="60" value="20">
-				<h4>Seconds</h4>
+					<h4 class="selectTitle">Round Length</h4>
+					<input id="length" type="number" name="quantity" min="20" max="60" value="20">
+					<h4>Seconds</h4>
 				</div>
 
 				<div class="option">
-				<form action="">
-				  	<input type="radio" name="team" value="Individual"> Individual<br>
-				  	<input type="radio" name="team" value="Teams"> Teams<br>
-				  	<input type="radio" name="team" value="RandTeams"> Random Teams
-				</form>
-				<button>Generate</button>
+					<form action="">
+						<input type="radio" name="team" value="Individual"> Individual<br>
+						<input type="radio" name="team" value="Teams"> Teams<br>
+						<input type="radio" name="team" value="RandTeams"> Random Teams
+					</form>
+					<button>Generate</button>
 				</div>
 
 			</div>
@@ -64,15 +63,19 @@
 			<div id="top">
 				<h3>Allow players to join</h3>
 				<label class="switch">
-				  <input type="checkbox" onclick="toggle()">
-				  <span class="slider round"></span>
+					<input type="checkbox" onclick="toggle()">
+					<span class="slider round"></span>
 				</label>
 			</div>
 			<br>
 			<div id="players">
 				<ul id="play-list"></ul>
 			</div>
-			<div id="begin"><a href="teacher_game.html"><button id="begin-btn">BEGIN!</button></a></div>
+			<div id="begin">
+				<a href="teacher_game.html">
+				<button id="begin-btn">BEGIN!</button>
+				</a>
+			</div>
 		</div>
 
 	</body>

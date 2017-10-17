@@ -6,7 +6,6 @@ html {
 	color: #fff;
 }
 
-
 #header {
 	color: #fff;
 	background-color: #555;
@@ -156,14 +155,11 @@ li {
 	background-color: #ddd;
 }
 
-
-
 h3 {
 	margin:0;
 	padding:0;
 	float: left;
 }
-
 
 #top {
 	margin: 5px;
@@ -172,7 +168,6 @@ h3 {
 h2 {
 	text-align: center;
 }
-
 
 .count {
 	width:60%;
@@ -191,7 +186,6 @@ button {
 	float:left;
 }
 
-
 #end {
 	background-color: #daa;
 }
@@ -207,13 +201,6 @@ button {
 
 
 
-
-
-
-
-
-
-
 /* The switch - the box around the slider */
 .switch {
 	margin-left: 5px;
@@ -222,7 +209,6 @@ button {
 	width: 40px;
 	height: 22px;
 }
-
 
 /* Hide default HTML checkbox */
 .switch input {display:none;}
