@@ -50,7 +50,7 @@ html {
 	width:15%;	
 	height: 86vh;
 	float: left;
-	background-color: #ddd;
+	background-color: #aaa;
 }
 
 #game {
@@ -143,7 +143,7 @@ html {
 select, #length {
 	color: #555;
 	border-radius: 5px;
-	background-color: #ddf;
+	background-color: #ddd;
 }
 
 ul {
@@ -186,7 +186,7 @@ h2 {
 
 button {
 	color: #fff;
-	background-color: #aad;
+	background-color: #aaa;
 	border-radius: 10px;
 	float:left;
 }
