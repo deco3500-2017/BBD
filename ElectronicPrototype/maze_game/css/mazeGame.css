@@ -1,0 +1,194 @@
+body {
+    font-family: calibri;
+    background: white;
+    border-style: dashed;
+    border-color: white;
+    left:10px;
+    padding: 5px;
+    zoom: 70%;
+    
+}
+
+#infoCard {
+    position: absolute;
+    font-size: 15px;
+    padding-left: 5%;
+    width: 200px;
+    height: 100px;
+    color: white;
+    font-size: 15px;
+}
+
+.button {
+	background: grey;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 3px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+
+.button:hover{
+    background-color: #BAE1D3;
+}
+
+#login {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 600px;
+   height: 500px;
+   margin-top: -450px; /* Half the height */
+   margin-left: -250px; /* Half the width */
+}
+
+#loginTitle {
+    font-size: 100px;
+    color: white; 
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.loginButton {
+    font-size: 30px;
+    padding:30px;
+	background: grey;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 3px;
+	cursor: pointer;
+	margin: 10px 10px;   
+}
+
+.loginButton:hover {
+    background-color: orange;
+}
+
+#gameplay {
+}
+
+#maze{
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border: 5px solid #BAE1D3;
+    margin-left: 5%;
+    
+    position: absolute;
+    top: 25%;
+    left: 40%;
+
+}
+
+#challenge {
+    padding: 20px;
+    width = 50%;
+    margin: auto;
+    border: 1px solid black;
+    background-color: white;
+    position: absolute;
+    top: 25%;
+    left: 5%;
+}
+
+.header {
+    color: white;
+    font-size: 20px;
+    padding-left: 5%;
+}
+
+#feed {
+    background-color: #e0ebcf;
+    margin-left: 5%;
+    width:50%;
+    overflow-y: auto;
+    height: 200px;
+    padding: 10px;
+    border: 8px solid #d0e1b7;
+}
+
+.feed-item{
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    background: white;
+    padding-left: -100px;
+    padding-bottom: 25px;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+    font-size: 20px;
+}
+
+.feed-item:hover{
+    background-color: #f3f7ed;
+}
+
+.feed-item .user-dp{
+    width: 55px;
+    float: left;
+    margin: 12px 30px 0 20px;
+}
+
+.feed-item .user-dp .icon{
+    float: left;
+    width: 60px;
+    height: 60px;
+    background-size: 60px 60px;
+    border-radius: 100%;
+    background-image: url('https://lh3.googleusercontent.com/-Az9OhFIaxEY/AAAAAAAAAAI/AAAAAAAAAAA/iHtDLHxQMFc/photo.jpg');
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.4);
+}
+
+.feed-item .text-holder{
+    width: 75%;
+    float: left;
+}
+
+.feed-title{
+    font-weight: bold;
+    position: relative;
+    padding-top: 25px;
+    padding-left: 20px;
+       
+}
+
+.item-date{
+    font-style: italic;
+}
+
+#activityTitle {
+    color: white;
+    margin-top: 40px;
+    display: inline-block;
+    margin-right: 36%;
+}
+
+#lessonPlanTitle {
+    color: white;
+    padding-top: 80px;
+    font-size: 30px;
+}
+
+#activateLessonButton {
+    border-radius: 3px;
+    display:inline-block;
+}
+
+#enterLessonButton {
+    border-radius: 3px;
+    display:inline-block;
+}
+
+#teacherTitle {
+    position: absolute;
+    top: 10%;
+    left: 45%;
+    color: white;
+    padding-top: 20px;
+    font-size: 40px;   
+    font-weight: bold;
+}

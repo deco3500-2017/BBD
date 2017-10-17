@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<link rel="stylesheet" type="text/css" href="Spaceship.css">
+		<script type="text/javascript" src="spaceship.js"></script>
+	</head>
+
+	<body onload="student_setup()">
+		<div id="header"><h1>Spaceships - Join Game</h1></div>
+		<div id="up">
+			<div id="left">
+				<h2>Rounds</h2>
+				<div class="count">20</div>
+
+				<h2>Time</h2>
+				<div class="count">30s</div>
+
+			</div>
+
+			<div id="right">
+				<br>
+				<div id="begin"><a href="student_game.html"><button id="begin-btn">JOIN!</button></a></div>				
+			</div>
+		</div>
+		<div id="down">
+			<br>
+			<h3>Select your spaceship!</h3><br>
+			<div class="ship selected" style="float: left; clear:left; width:25%" onclick="selectShip(0)">
+				<h4>X-99</h4>
+				<div id="left">
+				<img src="img/s1.png" height="250">
+				</div>
+				<div id="right">
+				<ul>
+					<li>Speed:10</li>
+					<li>Guns:Light</li>
+					<li>Health:100</li>
+				</ul>
+				</div>
+			</div>
+			<div class="ship" style="float: left; width:25%" onclick="selectShip(1)">
+				<h4>Ryzen</h4>
+				<div id="left">
+					<img src="img/s2.png" height="250">
+				</div>
+				<div id="right">
+				<ul>
+					<li>Speed:5</li>
+					<li>Guns:Medium</li>
+					<li>Health:200</li>
+				</ul>
+				</div>
+			</div>
+			<div class="ship" style="float: left; width:25%" onclick="selectShip(2)">
+				<h4>LG1150</h4>
+				<div id="left">
+					<img src="img/s3.png" height="250">
+				</div>
+				<div id="right">
+				<ul>
+					<li>Speed:8</li>
+					<li>Guns:Light</li>
+					<li>Health:150</li>
+				</ul>
+				</div>
+			</div>
+			<div class="ship" style="float: left; width:25%" onclick="selectShip(3)">
+				<h4>GTX-1080ti</h4>
+				<div id="left">
+					<img src="img/s4.png" height="250">
+				</div>
+				<div id="right">
+				<ul>
+					<li>Speed:1</li>
+					<li>Guns:Heavy</li>
+					<li>Health:300</li>
+				</ul>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>

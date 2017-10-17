@@ -2,7 +2,9 @@
   "name": "maze_game",
   "version": "0.0.1",
   "dependencies": {
+    "cookie": "^0.3.1",
     "express": "^4.15.2",
+    "koa-session": "^5.5.0",
     "socket.io": "^1.7.3"
   },
   "scripts": {
