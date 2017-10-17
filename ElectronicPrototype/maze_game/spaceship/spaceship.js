@@ -1,4 +1,4 @@
-var add = ["functions", "do-while", "switch", "recursion", "classes"];
+var add = ["if", "functions", "do-while", "switch", "recursion", "classes"];
 var rmv = ["for", "while"];
 var players = 0;
 var join = false;
@@ -10,8 +10,6 @@ function teacher_setup() {
 function teacher_game() {
 	players = 10;
 	highScores();
-
-	//play();
 }
 
 function student_setup() {
