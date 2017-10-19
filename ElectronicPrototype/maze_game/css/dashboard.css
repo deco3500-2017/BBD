@@ -1,0 +1,13 @@
+body {
+	background-image: url("../images/lessonPlan.png");
+	font-family: calibri;
+}
+
+h1 {
+	color: white;
+	font-size: 20pt;
+}
+
+p {
+	color: white;
+}
