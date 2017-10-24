@@ -117,6 +117,15 @@
 <script>
 var playerNumber = -1;
 var canvas = $('#maze');
+var grass = new Image();
+grass.src = "images/grass.png"
+
+var dirt = new Image();
+dirt.src = "images/dirt.png"
+
+
+var spot = new Image();
+spot.src = "images/spot.png"
 // Maze canvas key: 1 for wall, 0 for path and -1 for the goal
 var maze = [
     [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -136,23 +145,19 @@ function createMaze(){
     
     var blockSize = width/maze.length;
     
+
+
+
     // Create a plane game board canvas
     var board = canvas[0].getContext('2d');
     board.setTransform(1, 0, 0, 1, 0, 0);
     // Creating a square canvas
     board.clearRect(0, 0, width, width);
-    
-    board.fillStyle = "green";
-    
-    //Loop through the maze array drawing the walls and the goal
+    board.fillStyle = "blue";
     for(var y = 0; y < maze.length; y++){
         for(var x = 0; x < maze[y].length; x++){
-            //Draw a wall
-            if(maze[y][x] === 1){
-                board.fillRect(x*blockSize, y*blockSize, blockSize, blockSize);
-            }
-            //Draw the goal
-            else if(maze[y][x] === -1){
+            if(maze[y][x] === -1){
+                
                 board.beginPath();
                 board.lineWidth = 5;
                 board.strokeStyle = "red";
@@ -161,6 +166,26 @@ function createMaze(){
                 board.moveTo(x*blockSize, (y+1)*blockSize);
                 board.lineTo((x+1)*blockSize, y*blockSize);
                 board.stroke();
+                board.drawImage(spot, x * blockSize, y * blockSize, blockSize, blockSize)
+
+
+            } else if(maze[y][x] === 0){
+                board.fillRect(x*blockSize, y*blockSize, blockSize, blockSize);
+
+                board.drawImage(dirt, x * blockSize, y * blockSize, blockSize, blockSize)
+            }
+        }
+    }
+    board.fillStyle = "green";
+    //Loop through the maze array drawing the walls and the goal
+    var offset = blockSize/10;
+    for(var y = 0; y < maze.length; y++){
+        for(var x = 0; x < maze[y].length; x++){
+            //Draw a wall
+            if(maze[y][x] === 1){
+                board.fillRect(x*blockSize, y*blockSize, blockSize, blockSize);
+
+                board.drawImage(grass, (x * blockSize)-offset, (y * blockSize)-offset, blockSize + 2*offset, blockSize + 2*offset)
             }
         }
     }
@@ -294,13 +319,15 @@ $(function () {
     socket.on('state', function(players){
       createMaze();
       var colourCounter = 0;
+      board.strokeStyle = "black";
       for (var id in players) {
           var player = players[id];
           console.log(player.x+"," + player.y);
           board.beginPath();
           board.fillStyle = colours[player.name];
-          board.arc(player.x*blockSize+half, player.y*blockSize+half, half, 0, 2*Math.PI);
+          board.arc(player.x*blockSize+half, player.y*blockSize+half, 2*(blockSize/5), 0, 2*Math.PI);
           board.fill();
+          board.stroke();
           colourCounter++;
       }
     });
