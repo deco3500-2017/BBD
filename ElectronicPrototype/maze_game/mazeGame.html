@@ -161,7 +161,8 @@
         int i; <br>
         for(<input id="Q1Answer" type="text" name="lname">) {<br>
            &emsp; print i;<br>
-        }
+        }<br>
+        Answer is "correct"<br>
         <br><br>
         <button id="submit" onclick="checkAnswer()" type="button" class="buttonMove">Check</button>
         <br><br>
@@ -335,14 +336,14 @@ $("#studentAccount").click(function(){
 
 
 $("#dashboard").click(function(){
-    open('http://localhost:3000/' + "dashboard" , '_blank'); 
+    open("./dashboard" , '_blank'); 
 });
 
 $("#spacegame").click(function(){
     if(logged == 2) {
-        open('http://localhost:3000/' + "student_setup" , '_blank'); 
+        open("./student_setup" , '_blank'); 
     } else {
-        open('http://localhost:3000/' + "teacher_setup" , '_blank'); 
+        open("./teacher_setup" , '_blank'); 
     }
     
 });
@@ -390,7 +391,7 @@ function checkAnswer() {
     
     
     
-    if(document.getElementById('Q1Answer').value == "Correct") {
+    if(document.getElementById('Q1Answer').value == "correct") {
         document.getElementById("challenge").style.background = "green";
         document.getElementById('Q1Answer').value = "";
         socket.emit('addCounter', 3);
