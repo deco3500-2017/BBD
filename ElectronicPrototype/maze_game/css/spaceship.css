@@ -1,0 +1,271 @@
+html {
+	font-family: "Calibri";
+	background-color: #eee;
+	background: url("../images/rocketWallpaper.png") no-repeat center center fixed;
+	background-size: cover;
+	color: #fff;
+}
+
+#header {
+	color: #fff;
+	background-color: #555;
+	width: 100%;
+	height: 5%;
+	left: 0;
+	top: 0;
+}
+
+#left {
+	padding-right: 5%;
+	width:40%;
+	float: left;
+}
+
+#right {
+	padding-left: 5%;
+	width: 40%;
+	float: left;
+}
+
+.dark {
+	height: 90vh;
+	background-color: #ddd;
+}
+
+#up {
+	height: 50%;
+	width: 100%;
+	float: top;
+}
+
+#down {
+	height: 50%;
+	width: 100%;
+	float: top;
+	clear: left;
+}
+
+
+#gleft {
+	width:15%;	
+	height: 86vh;
+	float: left;
+	background-color: #aaa;
+}
+
+#game {
+	width: 75%;
+	height: 86vh;
+	float: left;
+}
+
+#gmid {
+	width: 85%;
+	height: 85vh;
+	float: left;
+}
+
+#gright {
+	width: 10%;
+	height: 86vh;
+	float: left;
+	background-color: #ddd;
+}
+
+#options {
+	height:50%;
+	float: top;
+}
+
+#topics {
+	height:50%;
+	float: bottom;
+	//background-color: #ddd;
+}
+
+#begin {
+	width:25%;
+	height: 40px;
+	color: #fff;
+	background-color: #ada;
+	border-radius: 10px;
+	float: bottom;
+	margin: auto;
+}
+
+#begin-btn {
+	width: 100%;
+	height: 40px;
+	color: #fff;
+	background-color: #ada;
+	border-radius: 10px;
+	float: bottom;
+}
+
+#code {
+	margin: 10px;
+	width: 95%; 
+	height: 80%
+}
+
+.block {
+	width: 24%;
+	height: 80%;
+	text-align: center;
+	border: 1px solid black;
+	float: left;
+	background-color: #ccc;
+}
+
+.ship {
+	background-color: #aaa;
+	color: #fff;
+}
+
+.selected {
+	background-color: #ada;
+}
+
+.selectTitle {
+	float: left;
+}
+
+.option {
+	clear:left;
+}
+
+.option input[type = number], .option select {
+	margin-top: 23px;
+	margin-bottom: 23px;
+	margin-left: 10;
+}
+
+select, #length {
+	color: #555;
+	border-radius: 5px;
+	background-color: #ddd;
+}
+
+ul {
+    list-style-type: none;
+	color: #555;
+}
+
+li {
+	opacity: 0.7;
+	margin:1px;
+}
+
+#players li {
+	background-color: #ddd;
+}
+
+h3 {
+	margin:0;
+	padding:0;
+	float: left;
+}
+
+#top {
+	margin: 5px;
+}
+
+h2 {
+	text-align: center;
+}
+
+.count {
+	width:60%;
+	margin: auto;
+	text-align: center;
+	padding: 10px;
+	background-color: #777;
+	color: #fff;
+	border-radius: 10px;
+}
+
+button {
+	color: #fff;
+	background-color: #aaa;
+	border-radius: 10px;
+	float:left;
+}
+
+#end {
+	background-color: #daa;
+}
+
+#start {
+	background-color: #ada;
+}
+
+/*img {
+	height: 50%;
+}*/
+
+
+
+
+/* The switch - the box around the slider */
+.switch {
+	margin-left: 5px;
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 22px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 14px;
+	width: 14px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked + .slider {
+  	background-color: #2196F3;
+}
+
+input:focus + .slider {
+ 	box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(18px);
+	-ms-transform: translateX(18px);
+	transform: translateX(18px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  	border-radius: 34px;
+}
+
+.slider.round:before {
+  	border-radius: 50%;
+}
+
+
+
+

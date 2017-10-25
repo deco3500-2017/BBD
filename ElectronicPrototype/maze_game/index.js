@@ -7,9 +7,30 @@ var port = process.env.PORT || 3000;
 app.use('/static', express.static(__dirname + '/static'));
 app.use('/images', express.static(__dirname + '/images'));
 
+
 app.use('/css', express.static(__dirname + '/css'));
+app.use('/js', express.static(__dirname + '/ss'));
 
 
+app.get('/student_setup', function(req, res){
+  res.sendFile(__dirname + '/student_setup.html');
+});
+
+app.get('/teacher_setup', function(req, res){
+  res.sendFile(__dirname + '/teacher_setup.html');
+});
+
+app.get('/student_game', function(req, res){
+  res.sendFile(__dirname + '/student_game.html');
+});
+
+app.get('/teacher_game', function(req, res){
+  res.sendFile(__dirname + '/teacher_game.html');
+});
+
+app.get('/dashboard', function(req, res){
+  res.sendFile(__dirname + '/dashboard.html');
+});
 // Below is so we don't have to write the entire html
 // in this file
 /*

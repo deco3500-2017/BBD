@@ -7,6 +7,67 @@
 
 <body>
 
+<div id="promotion"> 
+    <link type="text/css" rel="stylesheet" href="./css/landingPage.css">
+
+    <div class="topnav" id="myTopnav"> 
+      <a href="#admin">The Problem</a>
+      <a href="#theproduct">The Solution</a>
+      <a href="#buy">Try it out!</a>
+    </div>
+
+    <div id="title" class="title">
+        <h3>&nbsp &nbsp &nbsp &nbsp   Codeverter   &nbsp &nbsp &nbsp  &nbsp </h3>
+    </div>
+
+    <div id="one" data-color="#ffb366">                                 
+        <div id="mvpContainer">
+            <img id="mvp" width="900" height="500" src="./images/loginScreenshot.png">
+        </div>
+    </div>
+
+
+    <div id="two" data-color="#ffa64d">    
+        <h2 id="theproduct"> The Problem </h2>
+        <p>In some shape or form, technological advancements shape and control just about every aspect of our lives today. As a result children today are growing up in a very different world than previous generations. Currently in Australia more than 90% of the workforce will need digital skills to perform their roles and in the next 2-5 years 60% of students will be studying or training for positions that will become largely automated. Thus in this digital age it’s important for students to start learning how to program from a younger age.
+    <br><br>
+    However, when trying to do so, we are faced with a few challenges. It’s not easy to get young people to not only learn such complex concepts, but also get them to take interest in programming. And, not all teachers are equipped with the skills to teach programming. There needs to be a resource that inexperienced teachers can use to aid the classroom, that will engage primary school aged students.
+     </p>
+        <div class="clear"></div>
+    </div>
+
+    <hr>
+
+    <article id="five" data-color="#ff9933">
+        <h1 id="how"> The Solution </h1>
+        <p>
+        Codeverter aims to make learning how to code within classrooms a more social experience in order to boost interest and participation.
+        Basically, a teacher creates their own profile on Codeverter and then sets up a “virtual classroom” that their students will sign-on to with their own accounts.
+        Codeverter allows the teachers to create lesson plans that include learning modules and acitivities for the students to then test out what they've learnt. 
+        The success of Codeverter relies on the social aspect of the app and it's what makes it different from our competitors.
+        It makes use of the current common class setup of one big class display screen and several other indivdual student screens. 
+        The main display screen is what connects the acitivites happening on the student's individual screens with the rest of the class.<br><br>
+        For example in one of the designed activities the main class display screen shows an alien attack against the class.
+        The student must complete coding challenges to upgrade their space ships in order to help the class defeat the attackers together.
+        With games designed as so students work together as a class and also compete against each other to build the best spacecraft.
+        </p>
+    </article>  
+
+    <article id="six" data-color="#ff8c1a">
+        <img id="mvp" width="900" height="580" src="./images/teacherGif.gif">
+    </article>  
+
+    <hr>
+
+    <article id="four" data-color="#ff8000">
+        <h1 id="buy"> Try it out! </h1>
+        <p id="buytext">Click below to try out Codeverter!</p>
+        <br><br>
+                <input type="button" id="buybutton" value="Start"></input>
+
+        <div class="clear"></div>
+    </article>                                   
+</div>
 
 <!-- The Login Page -->
 <div id="login">
@@ -15,12 +76,17 @@
     <input type="button" id="studentAccount" class="loginButton" value="I am a student"></input>
 </div>
 
+
+
+
 <!-- The Lesson Plan Page -->
 <div id="lessonPlan">
     <div>
         <h1 id="lessonPlanTitle" class="header"> Today's Lesson Plan </h1>
     </div>
 
+    <a id="dashboard">Visit Dashboard</a>
+    
     <div class="header">
     <h3> Learning Content </h3>
     </div>
@@ -62,8 +128,8 @@
             <div onclick="location.href='index.html" class=" feed-title">Maze Game</div>
         </div>
         
-        <div class="feed-item">
-            <div class="feed-title">Space Game</div>
+        <div id=spacegame class="feed-item">
+            <a class="feed-title">Space Game</a>
         </div>
     </div> 
 </div>
@@ -74,12 +140,17 @@
 
     <div id="teacherTitle"></div>
 
-    <div id="infoCard">
-        <div id="playerTitle"></div>
+
+
+   <div id="profilepanel" class="w3-panel">
+        <div class="card">
+            <img id="circle">
+        <div id="playerTitle"></div><br>
         <div id="gameTitle"></div>
         <div id="counterTitle"></div>
+        </div>
+        
     </div>
-
 
 
     <!-- Challenges will be like a step by step form -->
@@ -92,12 +163,12 @@
            &emsp; print i;<br>
         }
         <br><br>
-        <button id="submit" onclick="checkAnswer()" type="button">Check</button>
+        <button id="submit" onclick="checkAnswer()" type="button" class="buttonMove">Check</button>
         <br><br>
-        <button id="right" type="button">Right</button>
-        <button id="left" type="button">Left</button>
-        <button id="up" type="button">Up</button>
-        <button id="down" type="button">Down</button>
+        <button id="right" type="button" class="buttonMove">Right</button>
+        <button id="left" type="button" class="buttonMove">Left</button>
+        <button id="up" type="button" class="buttonMove">Up</button>
+        <button id="down" type="button" class="buttonMove">Down</button>
 
     </div>
     
@@ -191,8 +262,40 @@ function createMaze(){
     }
 }
 createMaze();
-var logged = 0;
+
+var start = 0;
+var logged = -1;
+if(start == 0) {
+    document.getElementById("maze").style.display = "none";
+    document.getElementById("challenge").style.display = "none";
+    document.getElementById("login").style.display = "none";
+    document.getElementById("profilepanel").style.display = "none";
+
+}
+
+
+$("#buybutton").click(function(){
+    $('link[href="./css/mazegame.css"]').prop('disabled', true);
+
+    logged = 0;
+    start = 1;
+    document.getElementById("login").style.display = "block"; 
+    document.getElementById("promotion").style.display = "none";
+    document.getElementById("profilepanel").style.display = "none";
+
+    document.getElementById("maze").style.display = "none";
+    document.getElementById("challenge").style.display = "none";
+    document.body.style.backgroundImage =  'url(./images/rocketWallpaper.png)';
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+    $('link[href="./css/landingPage.css"]').prop('disabled', true);
+});
+
+
+
 if(logged == 0) {
+    document.getElementById("profilepanel").style.display = "none";
+
     document.getElementById("maze").style.display = "none";
     document.getElementById("challenge").style.display = "none";
     document.body.style.backgroundImage =  'url(./images/rocketWallpaper.png)';
@@ -211,7 +314,8 @@ $("#teacherAccount").click(function(){
     document.getElementById("login").style.display = "none"; 
     document.getElementById("lessonPlan").style.display = "block";
     document.getElementById("enterLesson").style.display = "none";
- 
+        document.getElementById("profilepanel").style.display = "none";
+
     document.body.style.backgroundImage =  'url(./images/lessonPlan.png)';
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
@@ -222,10 +326,25 @@ $("#studentAccount").click(function(){
     document.getElementById("login").style.display = "none"; 
     document.getElementById("lessonPlan").style.display = "block";
     document.getElementById("activateLesson").style.display = "none";
-    
+        document.getElementById("profilepanel").style.display = "none";
+
     document.body.style.backgroundImage =  'url(./images/lessonPlan.png)';
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "contains";
+});
+
+
+$("#dashboard").click(function(){
+    open('http://localhost:3000/' + "dashboard" , '_blank'); 
+});
+
+$("#spacegame").click(function(){
+    if(logged == 2) {
+        open('http://localhost:3000/' + "student_setup" , '_blank'); 
+    } else {
+        open('http://localhost:3000/' + "teacher_setup" , '_blank'); 
+    }
+    
 });
 $("#activateLesson").click(function(){
     if(lessonActive == 0) {
@@ -242,17 +361,22 @@ $("#activateLesson").click(function(){
         lessonActive = 0;
     }  
 });
+
 $("#enterLesson").click(function(){
     document.getElementById('lessonPlan').style.display = "none";  
     if(lessonPlan == 1) {
         document.getElementById("maze").style.left = "35%";
         document.getElementById("maze").style.display = "inline-block";
         document.getElementById("challenge").style.display = "none";
+            document.getElementById("profilepanel").style.display = "none";
+
         //document.getElementById('teacherTitle').innerHTML = "TEACHER SCREEN";
         socket.emit('new player', "teacher");
     } else if (lessonPlan == 2) {
         document.getElementById("maze").style.display = "inline-block";
         document.getElementById("challenge").style.display = "inline-block";
+            document.getElementById("profilepanel").style.display = "block";
+
         //document.getElementById('playerTitle').innerHTML = "Player ID: " + playerNumber;
         socket.emit('new player', "student");
     }
@@ -336,6 +460,15 @@ $(function () {
     socket.on('counterUpdate', function(currentCounter){
         if(playerNumber != 'x') 
             document.getElementById('counterTitle').innerHTML = "Number of moves available: " + currentCounter;
+            if(currentCounter == 0) {
+                document.getElementById("challenge").style.background = "white";
+                document.getElementById("submit").disabled = "";
+
+            }
+            if(currentCounter != 0) {
+                document.getElementById("submit").disabled = "disabled";
+            }
+            
     });
     
     /*
@@ -357,13 +490,59 @@ $(function () {
                 document.getElementById('playerTitle').innerHTML = "Player ID: " + playerID;
             }
         }
+      
+         document.getElementById('circle').setAttribute("style", "background:" + colours[playerNumber] + ";");
+
     });
     
         
     socket.on('win', function(playerID){    
-        document.getElementById("maze").style.visibility = "hidden";
+        if(logged == 2) {
+                document.getElementById("maze").style.visibility = "hidden";                
+                document.getElementById("challenge").style.visibility = "hidden";
+                                document.getElementById("challenge").style.visibility = "hidden";
+document.getElementById('counterTitle').style.visibility = "hidden";
+
+        }
         document.getElementById('gameTitle').innerHTML = "Winner is player: " + playerID;
     });
+    
+    
+$(document).ready(function() {
+	setTimeout(function() {
+		$("#title").removeClass("title");
+	}, 800)
+});
+
+var one = "#ffb366",
+		two = "#ffa64d",
+		three = "#ff9933",
+		four = "#ff8c1a",
+		five = "#ff8000";
+
+$(window).on("scroll touchmove", function() {
+        if(start == 0){
+            if ($(document).scrollTop() >= $("#myTopnav").position().top) {
+                            $('body').css('background', $("#one").attr("data-color"));
+            };
+            
+            if ($(document).scrollTop() >= $("#one").position().top) {
+                    $('body').css('background', $("#one").attr("data-color"));
+            };
+            
+            if ($(document).scrollTop() > $("#two").position().top) {
+                    $('body').css('background', $("#two").attr("data-color"))
+            };
+            
+            if ($(document).scrollTop() > $("#three").position().top) {
+                    $('body').css('background', $("#three").attr("data-color"))
+            };
+        }
+});
+    
+    
+    
+    
 });
 /*
 function clearGame() {

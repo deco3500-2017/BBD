@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html style="background: url(&quot../images/lessonPlan.png&quot) no-repeat center center fixed; background-size: cover;">
+	
+	<head>
+		<link rel="stylesheet" type="text/css" href="./css/spaceship.css">
+	</head>
+
+	<body onload="student_setup()">
+		<div id="header"><h1>Spaceships - Join Game</h1></div>
+		<div id="up">
+			<div id="left">
+				<h2>Rounds</h2>
+				<div class="count">20</div>
+
+				<h2>Time</h2>
+				<div class="count">30s</div>
+
+			</div>
+
+			<div id="right">	
+				<br>
+				<div id="begin"><a href="./student_game"><button id="begin-btn">JOIN!</button></a></div>				
+			</div>
+		</div>
+		<div id="down">
+			<br>
+			<h3>Select your spaceship!</h3><br>
+			<div class="ship selected" style="float: left; clear:left; width:25%" onclick="selectShip(0)">
+				<h4>X-99</h4>
+				<div id="left">
+					<img src="./images/s1.png" height="250">
+				</div>
+				<div id="right">
+					<ul>
+						<li>Speed:10</li>
+						<li>Guns:Light</li>
+						<li>Health:100</li>
+					</ul>
+				</div>
+			</div>
+			<div class="ship" style="float: left; width:25%" onclick="selectShip(1)">
+				<h4>Ryzen</h4>
+				<div id="left">
+					<img src="./images/s2.png" height="250">
+				</div>
+				<div id="right">
+					<ul>
+						<li>Speed:5</li>
+						<li>Guns:Medium</li>
+						<li>Health:200</li>
+					</ul>
+				</div>
+			</div>
+			<div class="ship" style="float: left; width:25%" onclick="selectShip(2)">
+				<h4>LG1150</h4>
+				<div id="left">
+					<img src="./images/s3.png" height="250">
+				</div>
+				<div id="right">
+					<ul>
+						<li>Speed:8</li>
+						<li>Guns:Light</li>
+						<li>Health:150</li>
+					</ul>
+				</div>
+			</div>
+			<div class="ship" style="float: left; width:25%" onclick="selectShip(3)">
+				<h4>GTX-1080ti</h4>
+				<div id="left">
+					<img src="./images/s4.png" height="250">
+				</div>
+				<div id="right">
+					<ul>
+						<li>Speed:1</li>
+						<li>Guns:Heavy</li>
+						<li>Health:300</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+    
+<script>
+var add = ["if", "functions", "do-while", "switch", "recursion", "classes"];
+var rmv = ["for", "while"];
+var players = 0;
+var join = false;
+
+function teacher_setup() {
+	drawList();
+}
+
+function teacher_game() {
+	players = 10;
+	highScores();
+}
+
+function student_setup() {
+
+}
+
+function student_game() {
+	populateText();
+}
+
+function toggle() {
+	join = !join;
+	var old = players;
+	while(join && players < (old + (Math.random() * 10))) {
+		addPlayer();
+	}
+}
+
+function addToRmv(i) {
+	s = add[i];
+	add.splice(i, 1);
+	rmv.push(s);
+	drawList();
+}
+
+function rmvToAdd(i) {
+	s = rmv[i];
+	rmv.splice(i, 1);
+	add.push(s);
+	drawList();
+}
+
+function drawList() {
+	var ul = document.getElementById("add");
+	while (ul.firstChild) {
+      ul.removeChild(ul.firstChild);
+    }
+	for(i in add) {		
+	  	var li = document.createElement("li");
+	  	li.appendChild(document.createTextNode(" + " + add[i]));
+	  	li.setAttribute("onclick", "addToRmv(" + i + ")");
+	  	li.setAttribute("style", "background-color: #fbb;");
+	  	ul.appendChild(li);
+	}
+
+	ul = document.getElementById("rmv");
+	while (ul.firstChild) {
+      ul.removeChild(ul.firstChild);
+    }
+	for(i in rmv) {		
+	  	var li = document.createElement("li");
+	  	li.appendChild(document.createTextNode(" - " + rmv[i]));
+	  	li.setAttribute("onclick", "rmvToAdd(" + i + ")");
+	  	li.setAttribute("style", "background-color: #bfb;");
+	  	ul.appendChild(li);
+	}
+}
+
+function addPlayer() {
+	players += 1;
+	var ul = document.getElementById("play-list");
+	var li = document.createElement("li");
+	li.appendChild(document.createTextNode("Player " + players));
+	ul.appendChild(li);
+}
+
+function highScores() {
+	var ul = document.getElementById("score");
+	while (ul.firstChild) {
+      ul.removeChild(ul.firstChild);
+    }
+	for(i = 0; i < players; i++) {		
+	  	var li = document.createElement("li");
+	  	li.appendChild(document.createTextNode("P" + (i + 1) + ": " + Math.floor(Math.random() * 100 + 100 * (players - i))));
+	  	ul.appendChild(li);
+	}
+}
+
+function selectShip(x) {
+	var ships = document.getElementsByClassName("ship");
+	for(i = 0; i < ships.length; i++) {
+		console.log(i);
+		if(i == x) {
+			ships[i].setAttribute("class", "ship selected");
+		} else {
+			ships[i].setAttribute("class", "ship");
+		}
+	}
+}
+
+function play() {
+	var can = document.getElementById("game");
+	var c = can.getContext("2d");
+	var x = 0;
+	var y = 0;
+	var vx = 0.1;
+	var vy = 0.2;
+	var f = 0;
+	c.fillStyle = "red";
+	while(f < 1000) {
+		c.clearRect(0, 0, 1280, 720);
+
+		x += vx;
+		y += vy;
+
+		c.strokeRect(x,y,20, 20);
+
+		f++;
+	}
+}
+
+function populateText() {
+	var code = document.getElementById("code");
+
+	code.innerHTML = "/*Spaceship game\nadd your code here to make your ship stronger\nIf you don't know what a piece of code does\nthen look at the blocks below\n or put your hand up and ask for your teachers help!\nHappy Coding!\n*/\n\nfor(e in enemies) {\n\tif(inRange(e)) {\n\t\tshoot(e);\n\t}\n}\n\nif(health < 20) {\n\theal();\n\trun();\n}";
+}
+</script>
+</html>
+
+
