@@ -475,6 +475,7 @@ $(".logoutButton").click(function(){
             inLesson = 0;
             start = 0;      
             logged = -1;
+            playerNumber = -1;
  
 });
 
@@ -580,6 +581,7 @@ $(function () {
     
     socket.on('playerTitle', function(playerID){  
         console.log("Player ID " + playerID);
+        if(playerNumber == -1) {
             playerNumber = playerID;
             
             if(playerID == "teacher") {
@@ -590,7 +592,7 @@ $(function () {
             }
       
         document.getElementById('circle').setAttribute("style", "background:" + colours[playerNumber] + ";");
-
+}
     });
     
         
