@@ -81,6 +81,8 @@
 
 <!-- The Lesson Plan Page -->
 <div id="lessonPlan">
+    <input type="button" class="logoutButton" value="Logout"/>
+
     <div>
         <h1 id="lessonPlanTitle" class="header"> Today's Lesson Plan </h1>
     </div>
@@ -321,6 +323,9 @@ $("#teacherAccount").click(function(){
     document.getElementById("lessonPlan").style.display = "block";
     document.getElementById("enterLesson").style.display = "none";
         document.getElementById("profilepanel").style.display = "none";
+        
+        
+            document.getElementById("activateLesson").style.display = "block";
 
     document.body.style.backgroundImage =  'url(./images/lessonPlan.png)';
     document.body.style.backgroundRepeat = "no-repeat";
@@ -439,6 +444,29 @@ $(".backButton").click(function(){
     }
 });
 
+
+$(".logoutButton").click(function(){
+            document.getElementById("login").style.display = "block"; 
+            document.getElementById("maze").style.display = "none"; 
+            document.getElementById("challenge").style.display = "none";
+            document.getElementById("profilepanel").style.display = "none";
+            //document.getElementById("enterLesson").style.display = "none";
+            //document.getElementById("activateLesson").style.display = "none";
+
+            document.getElementById("lessonPlan").style.display = "none";
+
+            document.body.style.backgroundImage =  'url(./images/rocketWallpaper.png)';
+            document.body.style.backgroundRepeat = "no-repeat";
+            document.body.style.backgroundSize = "cover";
+            
+            
+            lessonPlan = 0;
+            lessonActive = 0;
+            inLesson = 0;
+            start = 0;      
+            logged = -1;
+ 
+});
 
 
 
