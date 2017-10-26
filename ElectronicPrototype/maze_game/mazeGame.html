@@ -136,6 +136,8 @@
     </div> 
 </div>
 
+<input id="backBtn" type="button" class="backButton" value="Back to Lesson Plan"/>
+
 
 <div id = "gameplay">
     <h1 id="lessonPlanTitle" class="header"></h1>
@@ -152,7 +154,6 @@
         <div id="counterTitle"></div>
         </div>
         
-        <input type="button" class="backButton" value="Back to Lesson Plan"/>
 
         
     </div>
@@ -218,15 +219,15 @@ var maze = [
 ];
 //Draw the maze
 function createMaze(){
-    var width = canvas.width(); // The width of the matrix
-    
-    var blockSize = width/maze.length;
-    
 
 
 
     // Create a plane game board canvas
     var board = canvas[0].getContext('2d');
+    var width = canvas.width(); // The width of the matrix
+    
+    var blockSize = width/maze.length;
+    
     board.setTransform(1, 0, 0, 1, 0, 0);
     // Creating a square canvas
     board.clearRect(0, 0, width, width);
@@ -276,6 +277,8 @@ if(start == 0) {
     document.getElementById("challenge").style.display = "none";
     document.getElementById("login").style.display = "none";
     document.getElementById("profilepanel").style.display = "none";
+    document.getElementById("maze").style.display = "none";
+    document.getElementById("backBtn").style.display = "none";
 
 }
 
@@ -301,6 +304,7 @@ $("#buybutton").click(function(){
 
 if(logged == 0) {
     document.getElementById("profilepanel").style.display = "none";
+    document.getElementById("backBtn").style.display = "none";
 
     document.getElementById("maze").style.display = "none";
     document.getElementById("challenge").style.display = "none";
@@ -324,7 +328,8 @@ $("#teacherAccount").click(function(){
     document.getElementById("enterLesson").style.display = "none";
         document.getElementById("profilepanel").style.display = "none";
         
-        
+            document.getElementById("backBtn").style.display = "none";
+
             document.getElementById("activateLesson").style.display = "block";
 
     document.body.style.backgroundImage =  'url(./images/lessonPlan.png)';
@@ -339,6 +344,7 @@ $("#studentAccount").click(function(){
     document.getElementById("lessonPlan").style.display = "block";
     document.getElementById("activateLesson").style.display = "none";
         document.getElementById("profilepanel").style.display = "none";
+    document.getElementById("backBtn").style.display = "none";
 
     document.body.style.backgroundImage =  'url(./images/lessonPlan.png)';
     document.body.style.backgroundRepeat = "no-repeat";
@@ -379,6 +385,8 @@ var inLesson = 0;
 
 
 $("#enterLesson").click(function(){
+    document.getElementById("backBtn").style.display = "block";
+
     document.getElementById('lessonPlan').style.display = "none";  
     if(lessonPlan == 1) {
         document.getElementById("maze").style.left = "35%";
@@ -403,6 +411,8 @@ $(".backButton").click(function(){
  var socket = io();
     console.log("BACK!");
     document.getElementById('lessonPlan').style.display = "none";  
+        document.getElementById("backBtn").style.display = "none";
+
     if(inLesson != 0) {
     
         inLesson = 0;
