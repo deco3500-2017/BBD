@@ -85,11 +85,12 @@ io.on('connection', function(socket){
             io.sockets.emit('state', players);
             io.sockets.emit('playerTitle', "teacher");
         } else {
-           
+            console.log("hi");
             var freeName = true;
             for(var aName in names) {
                 console.log("aName: " +aName);
                 if(names[aName] == 0) {
+                    console.log("yes");
                     freeName = false;
                     break;
                 }
@@ -152,6 +153,17 @@ io.on('connection', function(socket){
 
     });
     
+    socket.on('removePlayer', function() {
+        console.log("player disconneted\n\n");
+        playerCount--;
+        
+        delete players[socket.id];
+        delete names[socket.id];
+        delete counters[socket.id];
+        
+        io.sockets.emit('state', players);
+    });
+    
     socket.on("addCounter", function(amount) {
         counters[socket.id] += amount;
         io.sockets.emit('counterUpdate', counters[socket.id]);
@@ -190,6 +202,7 @@ io.on('connection', function(socket){
 
     });
     
+
     /*
     socket.on('clearGame', function(){
        delete players[socket.id];
@@ -200,9 +213,12 @@ io.on('connection', function(socket){
     socket.on('disconnect', function() {
         console.log("player disconneted\n\n");
         playerCount--;
+        
+        
         delete players[socket.id];
         delete names[socket.id];
         delete counters[socket.id];
+        
         io.sockets.emit('state', players);
     })
 });

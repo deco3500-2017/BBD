@@ -150,6 +150,9 @@
         <div id="counterTitle"></div>
         </div>
         
+        <input type="button" class="backButton" value="Back to Lesson Plan"/>
+
+        
     </div>
 
 
@@ -303,8 +306,10 @@ if(logged == 0) {
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
 }
+
 var lessonPlan = 0;
 var lessonActive = 0;
+
 if(lessonPlan == 0) {
     document.getElementById("lessonPlan").style.display = "none";
 }
@@ -321,6 +326,7 @@ $("#teacherAccount").click(function(){
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
 });
+
 $("#studentAccount").click(function(){
     logged = 2;
     lessonPlan = 2
@@ -347,6 +353,7 @@ $("#spacegame").click(function(){
     }
     
 });
+
 $("#activateLesson").click(function(){
     if(lessonActive == 0) {
         document.getElementById('activateLesson').setAttribute("style", "background: #00e6b8;");
@@ -363,6 +370,9 @@ $("#activateLesson").click(function(){
     }  
 });
 
+var inLesson = 0;
+
+
 $("#enterLesson").click(function(){
     document.getElementById('lessonPlan').style.display = "none";  
     if(lessonPlan == 1) {
@@ -371,17 +381,68 @@ $("#enterLesson").click(function(){
         document.getElementById("challenge").style.display = "none";
             document.getElementById("profilepanel").style.display = "none";
 
-        //document.getElementById('teacherTitle').innerHTML = "TEACHER SCREEN";
         socket.emit('new player', "teacher");
+        inLesson = 1
     } else if (lessonPlan == 2) {
         document.getElementById("maze").style.display = "inline-block";
         document.getElementById("challenge").style.display = "inline-block";
             document.getElementById("profilepanel").style.display = "block";
 
-        //document.getElementById('playerTitle').innerHTML = "Player ID: " + playerNumber;
         socket.emit('new player', "student");
+        inLesson = 2;
     }
 });
+
+
+$(".backButton").click(function(){
+ var socket = io();
+    console.log("BACK!");
+    document.getElementById('lessonPlan').style.display = "none";  
+    if(inLesson != 0) {
+    
+        inLesson = 0;
+        if(lessonPlan == 1) { // Teacher
+            document.getElementById("login").style.display = "none"; 
+            document.getElementById("maze").style.display = "none"; 
+            document.getElementById("challenge").style.display = "none";
+            document.getElementById("profilepanel").style.display = "none";
+            document.getElementById("enterLesson").style.display = "block";
+            document.getElementById("activateLesson").style.display = "block";
+
+            document.getElementById("lessonPlan").style.display = "block";
+
+            document.body.style.backgroundImage =  'url(./images/lessonPlan.png)';
+            document.body.style.backgroundRepeat = "no-repeat";
+            document.body.style.backgroundSize = "cover";
+            
+        }else if (lessonPlan == 2) { // Student 
+            var socket = io();
+
+            console.log("BACK2!");
+
+            document.getElementById("login").style.display = "none"; 
+            document.getElementById("maze").style.display = "none"; 
+            document.getElementById("challenge").style.display = "none";
+            document.getElementById("profilepanel").style.display = "none";
+            document.getElementById("enterLesson").style.display = "block";   
+            
+            document.getElementById("lessonPlan").style.display = "block";
+
+            document.body.style.backgroundImage =  'url(./images/lessonPlan.png)';
+            document.body.style.backgroundRepeat = "no-repeat";
+            document.body.style.backgroundSize = "contains";
+            
+            socket.emit("removePlayer");
+            
+
+        }
+    }
+});
+
+
+
+
+
 //Check to see if the new space is inside the maze and not a wall
 function canMove(x, y){
     return (y>=0) && (y<maze.length) && (x >= 0) && (x < maze[y].length) && (maze[y][x] != 1);
@@ -480,8 +541,7 @@ $(function () {
     
     
     socket.on('playerTitle', function(playerID){  
-        console.log(playerID);
-        if(playerNumber == -1) {
+        console.log("Player ID " + playerID);
             playerNumber = playerID;
             
             if(playerID == "teacher") {
@@ -490,9 +550,8 @@ $(function () {
             } else {
                 document.getElementById('playerTitle').innerHTML = "Player ID: " + playerID;
             }
-        }
       
-         document.getElementById('circle').setAttribute("style", "background:" + colours[playerNumber] + ";");
+        document.getElementById('circle').setAttribute("style", "background:" + colours[playerNumber] + ";");
 
     });
     

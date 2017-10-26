@@ -273,3 +273,22 @@ body {
   padding: 10px 10px;
     font-size: 20px;
 }
+
+
+.backButton {
+	background: grey;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 3px;
+	cursor: pointer;
+	padding: 20px 20px;
+    position: absolute;
+    top: 30px;
+    left:30px;
+}
+
+
+.backButton:hover {
+    background-color: orange;
+}
