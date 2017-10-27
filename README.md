@@ -79,7 +79,7 @@ For example the main screen that the teacher projects to the class can display t
 <h2>3. Team</h2>
 
 <h3>3.1 Workload and Responsibilities</h3>
-As the team contains only 3 people we decided that having an assigned team leader would not be as effective. Thus the responsibilities of a team leader will be shared amongst each other. The success of the team will rely on all members being proactive and contributing to all aspects of the project. However each team member will be given the responsibility to look over certain area of the project.  The tasks have been divded up and assigned, and can be viewed here https://docs.google.com/document/d/1Ix1n-yNkbbL5i0OrrpfA3fJs8UUIx8AYnu5faTTNcuQ/edit?usp=sharing.
+As the team contains only 3 people we decided that having an assigned team leader would not be as effective. Thus the responsibilities of a team leader will be shared amongst each other. The success of the team will rely on all members being proactive and contributing to all aspects of the project. However each team member will be given the responsibility to look over certain area of the project.  The tasks have been divided up and assigned, and can be viewed here https://github.com/deco3500-2017/BBD/blob/master/List%20of%20what%20each%20person%20did.docx
 
 <h3>3.2 Group Decisions</h3>
 Group decisions will be discussed as a team and determine by a “majority rules” vote.
@@ -102,14 +102,12 @@ Every week the team will meet for 2 hours during the scheduled workshop on Tuesd
 If necessary, additional meetings can be planned and scheduled through the teams slack channel.
 
 <h3>4.2 Communication and File Sharing</h3>
-
 The team has a slack channel (in the DECO3500 team) named BBD, however most communiation will be over a Facebook group chat as we found we used Facebook more frequently.
 
 While Slack does allow for file sharing, we have instead opted for a combination of Google Drive and GitHub.
 The Google Drive will be used for all items that do not need version control and will have multiple concurrent contributors (e.g. reports), while the GitHub repository will be utilised for all of the actual project files. The version control will make it easy to ensure each member is contributing and to check progress and adhere to milestones.
 
 <h3>4.3 File Naming Conventions</h3>
-
 All files will be given descriptive names in camel case. Naming with a date/time stamp is not necessary as files will be under version control and changes to the files will include the date and time.
 
 <h2>5. Plan</h2>
