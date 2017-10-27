@@ -35,29 +35,21 @@ body {
 
 
 #four{
-    height: 8000px;
+    height: 5500px;
     padding-top: 20px;
 	float: center;
 	overflow: hidden;
 }
 
 #five{
-	width: 40%;
+	width: 80%;
 	display: inline-block;
 	padding-right: 10px
-	height: 1500px;
-    text-align:justify
+	height: 2000px;
+    text-align:justify;
+    padding-bottom: 20px;
 }
 
-#six{
-	width: 50%;
-	position: relative;
-	float: right;
-	overflow: hidden;
-	display: inline-block;
-	padding-top: 150px;
-	height: 1500px;
-}
 
 #down{
 	z-index: 10; 
